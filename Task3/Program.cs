@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace Task3
 {
-    class NewsResourse
+    public class NewsResourse
     {
-        public event EventHandler makeMessage;
-        public void sendMessage()
+        public event EventHandler MakeMessage;
+        public void SendMessage()
         {
-            makeMessage?.Invoke(this, EventArgs.Empty);
+            MakeMessage?.Invoke(this, EventArgs.Empty);
         }
     }
-    class Client
+    public class Client
     {
-
-        public void reactToMessage(Object obj, EventArgs e)
+        public void ReactToMessage(Object obj, EventArgs e)
         {
             Console.WriteLine("event happened");
         }
@@ -33,18 +32,17 @@ namespace Task3
             NewsResourse nr = new NewsResourse();
             Client client1 = new Client();
             Client client2 = new Client();
-            nr.makeMessage += client1.reactToMessage;
+            nr.MakeMessage += client1.ReactToMessage;
 
-            TimerCallback timerCB = new TimerCallback(staticMethodToCallEvent);
-            Timer timer = new Timer(staticMethodToCallEvent, nr, 0, period);
+            TimerCallback timerCB = new TimerCallback(StaticMethodToCallEvent);
+            Timer timer = new Timer(StaticMethodToCallEvent, nr, 0, period);
 
             Console.ReadKey();
         }
-
-        static void staticMethodToCallEvent(Object state)
+        static void StaticMethodToCallEvent(Object state)
         {
             NewsResourse nr = (NewsResourse)state;
-            nr.sendMessage();
+            nr.SendMessage();
         }
     }
 }

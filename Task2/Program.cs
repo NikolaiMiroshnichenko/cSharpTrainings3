@@ -6,37 +6,38 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    interface iAnimal
+    public interface iAnimal
     {
     }
-    class Panda : iAnimal
+    public class Panda : iAnimal
     {
     }
-    class Bear : iAnimal
+    public class Bear : iAnimal
     {
     }
-    class Racoon : iAnimal
+    public class Racoon : iAnimal
     {
     }
-
-    class Zoo
+    public class Zoo
     {
-        public List<iAnimal> zooPark = new List<iAnimal>();
+        private List<iAnimal> zooPark = new List<iAnimal>();
+        public void AddToZooparck(iAnimal animal)
+        {
+            zooPark.Add(animal);
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
+            Zoo zoo = new Zoo();
             iAnimal milacha = new Panda();
             iAnimal someGrizly = new Bear();
-            iAnimal rocket = new Racoon();
+            iAnimal rocket = new Racoon();            
 
-            Zoo zoo = new Zoo();
-
-            zoo.zooPark.Add(milacha);
-            zoo.zooPark.Add(someGrizly);
-            zoo.zooPark.Add(rocket);
-
+            zoo.AddToZooparck(milacha);
+            zoo.AddToZooparck(someGrizly);
+            zoo.AddToZooparck(rocket);
         }
     }
 }

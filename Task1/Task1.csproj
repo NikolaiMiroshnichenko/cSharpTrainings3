@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E846155-1B5C-41BB-AF48-760EDCB48181}</ProjectGuid>
+    <ProjectGuid>{37507724-918C-4DD5-AED2-82A08D74DD44}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Task1</RootNamespace>
     <AssemblyName>Task1</AssemblyName>
@@ -43,11 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Airbus.cs" />
+    <Compile Include="Classes\AirCompany.cs" />
+    <Compile Include="Classes\ANSportsPlane.cs" />
+    <Compile Include="Classes\Boeing.cs" />
+    <Compile Include="Interfaces\IAirCompany.cs" />
+    <Compile Include="Interfaces\ICargoPlane.cs" />
+    <Compile Include="Interfaces\IPassengerPlane.cs" />
+    <Compile Include="Interfaces\IPlane.cs" />
+    <Compile Include="Interfaces\ISportsPlane.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
