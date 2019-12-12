@@ -6,30 +6,28 @@ using System.Threading.Tasks;
 
 namespace Task4
 {
-    class Car
+    public class Car
     {
-        public int speed { get; set; }
-        public event EventHandler speedEvent;
-        public void speedChanging(int newSpeed)
+        public int Speed { get; set; }
+        public event EventHandler SpeedEvent;
+        public void SpeedChanging(int newSpeed)
         {
-            speed = newSpeed;
-            speedEvent?.Invoke(this, EventArgs.Empty);
+            Speed = newSpeed;
+            SpeedEvent?.Invoke(this, EventArgs.Empty);
         }
-
     }
-    class SpeedMeter
+    public class SpeedMeter
     {
         private Car _car;
         public SpeedMeter(Car car)
         {
             _car = car;
-            _car.speedEvent += speedView;
+            _car.SpeedEvent += SpeedView;
         }
-        public void speedView(Object obj, EventArgs e)
+        public void SpeedView(Object obj, EventArgs e)
         {
-            Console.WriteLine("Current speed is : " + _car.speed);
+            Console.WriteLine("Current speed is : " + _car.Speed);
         }
-
     }
     class Program
     {
@@ -38,8 +36,8 @@ namespace Task4
             Car bibiip = new Car();
             SpeedMeter sp1 = new SpeedMeter(bibiip);
 
-            bibiip.speedChanging(80);
-            bibiip.speedChanging(130);
+            bibiip.SpeedChanging(80);
+            bibiip.SpeedChanging(130);
 
             Console.ReadKey();
         }
